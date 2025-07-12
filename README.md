@@ -1,6 +1,6 @@
 # KEWNIX: TOR-Gateway Container Orchestrator
 
-**Kewnix** is a hardened, modular orchestration system for routing Docker containers through a transparent, isolated Tor gateway — all while keeping your host system clean, untouched, and hardened.
+**Kewnix** is a hardened, modular orchestration system for routing Docker containers through a transparent, isolated Tor gateway, all while keeping your host system clean, untouched, and hardened.
 
 > Built by **[Kewbit](https://kewbit.org)** with **security**, **transparency**, and **modularity** in mind.
 
