@@ -16,6 +16,9 @@ SERVICE_IMAGES=()
 ACCESS_DIR=".access"
 STATE_DIR=".state"
 
+# === IMPORT HARDENING MODULE ===
+source "$(dirname "$0")/.tor_gateway_hardening.sh"
+
 # === FUNCTIONS ===
 function check_docker() {
   if ! command -v docker &>/dev/null; then
@@ -87,6 +90,7 @@ function ask_service_details() {
   done
 
   reserve_network $index
+  ask_hardening_opts "$service_name"
 }
 
 function generate_compose() {
@@ -138,6 +142,8 @@ EOF
     dns:
       - $DEFAULT_TOR_IP
 EOF
+
+    generate_hardening_yaml "$svc" >> $COMPOSE_FILE
 
     echo "  $net:" >> $COMPOSE_FILE
     echo "    driver: bridge" >> $COMPOSE_FILE

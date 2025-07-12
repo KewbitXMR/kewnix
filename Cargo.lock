@@ -1,0 +1,16 @@
+[package]
+name = "packetguard"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pnet = "0.34"
+log = "0.4"
+env_logger = "0.10"
+regex = "1"
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+serde_derive = "1"
+
+# optional: nfqueue bindings if you go active
+netfilter-queue = "0.5"

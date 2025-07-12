@@ -1,0 +1,13 @@
+mode = "guard"  # "sniff" or "guard"
+interfaces = ["kewnet*"]  # Optional; autodetect if empty
+
+[filter]
+drop_if_ip_matches = ["8.8.8.8", "1.1.1.1"]
+drop_if_hostname_matches = ["example.com", "ipinfo.io"]
+log_dangerous_http = true
+log_dns_queries = true
+
+[nfqueue]
+enabled = true
+queue_num = 42
+fail_open = false  # If true, accept packets on NFQUEUE failure
