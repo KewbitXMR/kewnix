@@ -13,7 +13,7 @@
 ## 🧪 One-Liner Installer
 
 ```bash
-bash <(curl -fsSL https://gist.githubusercontent.com/KewbitXMR/a5a781978f636aece211c63bc0bd958b/raw/install-kewnix.sh)
+bash <(curl -fsSL https://gist.githubusercontent.com/KewbitXMR/3e27ba5bb203c01bd7d6ce695b0c137f/raw/7b877f5cbc7ba5299b7f9f188bd06cc9ba84b64e/kewnix_installer.sh)
 ```
 
 Installs the CLI to `~/.local/bin/kewnix` and sets up everything you need.  
@@ -57,10 +57,6 @@ kewnix clean                # Safely remove everything created by Kewnix
 | `.access/`           | Who can talk to whom                    |
 | `.state/`            | Tracks service state, subnet, etc       |
 | `TOR_ORCH*`          | iptables chains for strict enforcement  |
-
----
-
-Here’s the updated **Security Threat Matrix** for the Kewnix README, reflecting all current protections you've implemented through the recent updates, including `seccomp`, AppArmor integration scaffolding, hardened iptables, and Docker isolation:
 
 ---
 
