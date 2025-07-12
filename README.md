@@ -1,7 +1,3 @@
-Perfect — here’s your **final README** updated with the Gist installer and a polished call-to-action.
-
----
-
 # KEWNIX: TOR-Gateway Container Orchestrator
 
 **Kewnix** is a hardened, modular orchestration system for routing Docker containers through a transparent, isolated Tor gateway — all while keeping your host system clean, untouched, and hardened.
