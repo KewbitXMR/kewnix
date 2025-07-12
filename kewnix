@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# kewnix - Unified Tor Gateway Orchestrator CLI
+# Author: Kewbit
+# Description: Central command router for all orchestrator operations
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ORCH_SCRIPT="$SCRIPT_DIR/tor_gateway_docker_orchestrator.sh"
+MANAGER_SCRIPT="$SCRIPT_DIR/tor_gateway_service_manager.sh"
+
+function usage() {
+  cat <<EOF
+Usage: kewnix <command>
+
+Commands:
+  init                 Set up TOR gateway and containers (first time only)
+  add-service          Add a new container routed through TOR
+  remove-service NAME  Remove a container by name
+  list-services        Show all configured services
+  tail-logs            Tail logs related to TOR_ORCH iptables
+  clean                Remove all kewnix-managed containers, networks, rules, and files
+  help                 Show this help
+EOF
+  exit 0
+}
+
+case "$1" in
+  init)
+    shift
+    "$ORCH_SCRIPT" "$@"
+    ;;
+  add-service)
+    "$MANAGER_SCRIPT" add-service
+    ;;
+  remove-service)
+    shift
+    "$ORCH_SCRIPT" remove-service "$@"
+    ;;
+  list-services)
+    "$MANAGER_SCRIPT" list-services
+    ;;
+  tail-logs)
+    "$MANAGER_SCRIPT" tail-service-logs
+    ;;
+  clean)
+    "$ORCH_SCRIPT" clean
+    ;;
+  help|--help|-h)
+    usage
+    ;;
+  *)
+    echo "[!] Unknown command: $1"
+    usage
+    ;;
+esac
